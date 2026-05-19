@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanay Sahare | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:#f8fafc;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* Navbar */
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(15,23,42,0.95);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* Hero */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:100px;
+    }
+
+    .hero-content{
+      display:grid;
+      grid-template-columns:1fr 350px;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-size:3.5rem;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    .hero-text h1 span{
+      color:#38bdf8;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      margin-bottom:30px;
+      max-width:650px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .btn-primary:hover{
+      background:#0ea5e9;
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      border:1px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .btn-secondary:hover{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .profile-card{
+      background:#111c34;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .profile-img{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:#1e293b;
+      margin:0 auto 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#94a3b8;
+      border:3px solid #38bdf8;
+      overflow:hidden;
+    }
+
+    .profile-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .profile-card h3{
+      margin-bottom:8px;
+    }
+
+    .profile-card p{
+      color:#94a3b8;
+      font-size:0.95rem;
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      font-size:2.2rem;
+      margin-bottom:40px;
+      text-align:center;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:'';
+      width:80px;
+      height:4px;
+      background:#38bdf8;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-10px;
+      border-radius:999px;
+    }
+
+    /* About */
+    .about{
+      background:#111827;
+      border-radius:24px;
+      padding:40px;
+      color:#cbd5e1;
+      text-align:center;
+    }
+
+    /* Skills */
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .skill-card{
+      background:#111c34;
+      padding:25px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-5px);
+      border-color:#38bdf8;
+    }
+
+    .skill-card h3{
+      margin-bottom:12px;
+      color:#38bdf8;
+    }
+
+    .skill-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      background:#1e293b;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.85rem;
+      color:#cbd5e1;
+    }
+
+    /* Experience */
+    .timeline{
+      position:relative;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .timeline::before{
+      content:'';
+      position:absolute;
+      left:20px;
+      top:0;
+      width:3px;
+      height:100%;
+      background:#38bdf8;
+    }
+
+    .timeline-item{
+      position:relative;
+      margin-left:60px;
+      margin-bottom:40px;
+      background:#111c34;
+      padding:25px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      left:-50px;
+      top:30px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:#38bdf8;
+    }
+
+    .timeline-item h3{
+      color:#38bdf8;
+      margin-bottom:5px;
+    }
+
+    .timeline-item span{
+      color:#94a3b8;
+      font-size:0.9rem;
+    }
+
+    .timeline-item ul{
+      margin-top:15px;
+      padding-left:20px;
+      color:#cbd5e1;
+    }
+
+    .timeline-item li{
+      margin-bottom:10px;
+    }
+
+    /* Projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+
+    .project-card{
+      background:#111c34;
+      border-radius:20px;
+      padding:28px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-6px);
+      border-color:#38bdf8;
+    }
+
+    .project-card h3{
+      color:#38bdf8;
+      margin-bottom:12px;
+    }
+
+    .project-card p{
+      color:#cbd5e1;
+      font-size:0.95rem;
+      margin-bottom:16px;
+    }
+
+    /* Contact */
+    .contact-box{
+      background:#111827;
+      padding:40px;
+      border-radius:24px;
+      text-align:center;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:25px;
+    }
+
+    .contact-link{
+      padding:14px 20px;
+      border-radius:14px;
+      background:#111c34;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .contact-link:hover{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    footer{
+      padding:30px 0;
+      text-align:center;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:50px;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+      .hero-content{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:2.8rem;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+    }
+
+    @media(max-width:700px){
+      .nav-links{
+        gap:14px;
+        font-size:0.85rem;
+      }
+
+      .hero-text h1{
+        font-size:2.2rem;
+      }
+
+      .section-title{
+        font-size:1.8rem;
+      }
+
+      .timeline-item{
+        margin-left:45px;
+      }
+    }
+
+    @media(max-width:500px){
+      .nav-container{
+        flex-direction:column;
+        gap:14px;
+      }
+
+      .hero{
+        padding-top:140px;
+      }
+
+      .profile-card{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">Tanay Sahare</div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>
+          Operations Analyst <br>
+          <span>| MIS & Reporting</span>
+        </h1>
+
+        <p>
+          Data & MIS Analyst with 3+ years of experience in reporting automation,
+          SQL-based analytics, dashboard development, and business intelligence.
+          Passionate about transforming raw data into meaningful insights that
+          drive smarter business decisions.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Download Resume</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-img">
+          <!-- Replace with your image -->
+          PHOTO
+        </div>
+
+        <h3>Tanay Sahare</h3>
+        <p>MIS Analyst • BI Developer • SQL Analyst</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about">
+        <p>
+          I specialize in MIS reporting, business intelligence, dashboard development,
+          and operational analytics. With experience in SQL, Power BI, Excel automation,
+          and reporting optimization, I help businesses improve decision-making through
+          accurate data insights and efficient reporting systems.
+          <br><br>
+          I have worked across implementation support, operational analytics,
+          KPI tracking, ETL concepts, and stakeholder management while delivering
+          scalable reporting solutions that reduce manual effort and improve efficiency.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Analytics & BI</h3>
+
+          <div class="skill-tags">
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Dashboarding</span>
+            <span class="tag">KPI Tracking</span>
+            <span class="tag">Forecasting</span>
+            <span class="tag">Business Insights</span>
+            <span class="tag">Data Storytelling</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Technical Skills</h3>
+
+          <div class="skill-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Python</span>
+            <span class="tag">Advanced Excel</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Data Modeling</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Business Skills</h3>
+
+          <div class="skill-tags">
+            <span class="tag">Stakeholder Management</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Requirement Gathering</span>
+            <span class="tag">Process Optimization</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Eclerx Services LTD.</h3>
+          <span>Analyst (MIS & Reporting) • Mar 2025 – Jan 2026</span>
+
+          <ul>
+            <li>Automated MIS reporting processes using Excel and SQL, reducing manual effort by ~43%.</li>
+            <li>Designed dashboards in Looker and Tableau for KPI tracking and operational monitoring.</li>
+            <li>Improved reporting accuracy with standardized validation and reconciliation.</li>
+            <li>Performed trend analysis and statistical evaluations for operational insights.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Datastream Content Solution</h3>
+          <span>Implementation Specialist • Oct 2021 – Dec 2024</span>
+
+          <ul>
+            <li>Led software implementation and integration for hospitality clients.</li>
+            <li>Executed SQL queries for extraction, migration, and validation.</li>
+            <li>Automated recurring reports using Python and Excel Macros.</li>
+            <li>Provided post-implementation support and troubleshooting.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Sales Performance Dashboard</h3>
+          <p>
+            Built a Power BI + SQL dashboard for regional and product-level sales analysis
+            with drill-down reporting capabilities.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Customer Churn Analysis</h3>
+          <p>
+            Analyzed customer behavior using SQL and Python to identify churn patterns,
+            risk segments, and retention opportunities.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Automated Reporting System</h3>
+          <p>
+            Automated daily and weekly reporting workflows using Power BI and Power Query,
+            reducing reporting time from hours to minutes.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>KPI Tracking Framework</h3>
+          <p>
+            Developed standardized KPI dashboards enabling leadership teams to monitor
+            operational performance in real time.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-box">
+        <p>
+          Open to MIS Analyst, Business Intelligence, Reporting Analyst,
+          and Data Analytics opportunities.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:saharetanay12@gmail.com" class="contact-link">
+            Email
+          </a>
+
+          <a href="tel:+917720872539" class="contact-link">
+            Phone
+          </a>
+
+          <a href="#" class="contact-link">
+            LinkedIn
+          </a>
+
+          <a href="#" class="contact-link">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Tanay Sahare • Portfolio Website
+  </footer>
+
+</body>
+</html>

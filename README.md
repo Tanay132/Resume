@@ -103,11 +103,12 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 Author
 
-Created by Your Name.
+Tanay sahare
 
-GitHub: @your-username
+GitHub: @tanay132
+
 Portfolio: your-portfolio-link
-Email: your-email@example.com
+Email: tanay.sahare222@gmail.com
 Support
 
 If you find this project useful, consider giving it a ⭐ on GitHub. For questions or issues, open an issue in the repository.

@@ -107,7 +107,7 @@ Tanay sahare
 
 GitHub: @tanay132
 
-Portfolio: your-portfolio-link
+Portfolio: [your-portfolio-link](https://github.com/Tanay132)
 Email: tanay.sahare222@gmail.com
 Support
 
